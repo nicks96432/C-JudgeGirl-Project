@@ -14,7 +14,7 @@ int main(void)
 	printf("%d\n", max__len);
 #endif //DEBUG
 	// palindrome__a 決定第一個回文的開頭
-	// palindrome__b 決定第二個回文的開頭
+	// palindrome__b 決定第二個回文的結尾
 	for (palindrome__a = 0; palindrome__a < max__len - 1; palindrome__a++)
 	{
 		for (palindrome__b = palindrome__a + 1; palindrome__b < max__len; palindrome__b++)
@@ -34,7 +34,7 @@ int main(void)
 				}
 				for (j = 0; j <= (palindrome__b - i) >> 1 && b__not__palindrome == 0; j++)
 				{
-					if (A[i + j] != A[palindrome__b - j])
+					if (A[i + 1 + j] != A[palindrome__b - j])
 					{
 						b__not__palindrome = 1;
 					}
