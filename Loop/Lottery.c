@@ -1,14 +1,9 @@
-#include <iostream>
-#include <bits/ios_base.h>
-using namespace std;
+#include <stdio.h>
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
 	int special[3], first[3], lottery, money = 0;
-	// char buff[32];
-	cin >> special[0] >> special[1] >> special[2] >> first[0] >> first[1] >> first[2];
-	while (cin >> lottery)
+	scanf("%d%d%d%d%d%d", &special[0], &special[1], &special[2], &first[0], &first[1], &first[2]);
+	while (scanf("%d", &lottery) == 1)
 	{
 		if (lottery == special[0] || lottery == special[1] || lottery == special[2])
 		{
@@ -39,6 +34,6 @@ int main()
 			money += 200;
 		}
 	}
-	cout << money;
+	printf("%d", money);
 	return 0;
 }
