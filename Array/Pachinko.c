@@ -18,7 +18,7 @@ int main(void)
 {
 	int n;
 	scanf("%d", &n);
-	int total = n * (n + 1) / 2, total__new = (n + 1) * (n + 2) / 2, i, row = 0, column = 1;
+	int total = n * (n + 1) >> 1, total__new = (n + 1) * (n + 2) >> 1, i, row = 0, column = 1;
 	pin pins[total__new];
 	pin *iptr, *ptr__left, *ptr__right;
 	for (i = 0; i < total; i++)
@@ -67,7 +67,7 @@ int main(void)
 #endif
 		row++;
 	}
-	for (i = n * (n + 1) >> 1; i < total__new; i++)
+	for (i = total; i < total__new; i++)
 	{
 		printf("%ld/%ld\n", pins[i].probability__up, pins[i].probability__down);
 	}
