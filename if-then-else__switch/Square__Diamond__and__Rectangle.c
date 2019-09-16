@@ -33,6 +33,8 @@ int main(void)
 		abd = area(a, b, d);
 		acd = area(a, c, d);
 		bcd = area(b, c, d);
+		// 註解為以A為基準，逆時針排列
+		// ABDC ACDB
 		if ((abc != 0 && abd != 0 && acd == 0 && bcd == 0) || (abc == 0 && abd == 0 && acd != 0 && bcd != 0))
 		{
 			tmp = c.x;
@@ -42,7 +44,7 @@ int main(void)
 			c.y = d.y;
 			d.y = tmp;
 		}
-		else if (abc != 0 && abd == 0 && acd == 0 && bcd != 0)
+		else if (abc != 0 && abd == 0 && acd == 0 && bcd != 0)//ADBC
 		{
 			tmp = a.x;
 			a.x = d.x;
@@ -51,7 +53,7 @@ int main(void)
 			a.y = d.y;
 			d.y = tmp;
 		}
-		else if (abc == 0 && abd == 0 && acd == 0 && bcd == 0)
+		else if (abc == 0 && abd == 0 && acd == 0 && bcd == 0)//ADCB
 		{
 			tmp = b.x;
 			b.x = d.x;
@@ -60,7 +62,7 @@ int main(void)
 			b.y = d.y;
 			d.y = tmp;
 		}
-		else if (abc == 0 && abd != 0 && acd != 0 && bcd == 0)
+		else if (abc == 0 && abd != 0 && acd != 0 && bcd == 0)//ACBD
 		{
 			tmp = b.x;
 			b.x = c.x;

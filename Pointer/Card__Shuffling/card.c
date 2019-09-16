@@ -6,7 +6,11 @@ void shuffle(int *deck[])
 	{
 		count++;
 	}
-	int half;
+	int half = 0;
+	if (count == 0)
+	{
+		return;
+	}
 	if (count % 2)
 	{
 		half = count / 2 + 1;
@@ -49,12 +53,15 @@ void print(int *deck[])
 	{
 		count++;
 	}
-	int i;
-	for (i = 0; i < count; i++)
+	if (count == 0)
 	{
-		printf("%d\n", *deck[i]);
+		return;
 	}
+	int i;
+	for (i = 0; i < count - 1; i++)
+	{
+		printf("%d ", *deck[i]);
+	}
+	printf("%d", *deck[i]);
 	return;
 }
-//   1 1 1 NULL
-// 0 1 2 3

@@ -127,7 +127,7 @@ int main()
 		}
 		ans__down = c;
 		break;
-	case 3: //devide
+	case 3: //divide
 		if (a > 0)
 		{
 			b += a * c;
