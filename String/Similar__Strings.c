@@ -12,8 +12,8 @@ int main(void)
 		scanf("%s", a);
 		scanf("%s", b);
 		int len__a = strlen(a), len__b = strlen(b);
-		memset(alphabet__a, 0, 26);
-		memset(alphabet__b, 0, 26);
+		memset(alphabet__a, 0, sizeof(alphabet__a));
+		memset(alphabet__b, 0, sizeof(alphabet__b));
 		if (abs(len__a - len__b) > 1)
 		{
 			printf("no\n");
