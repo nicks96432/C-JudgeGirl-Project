@@ -1,93 +1,105 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 int main(void)
 {
-	int i = 0, j, k, n, count__word = 0, word__len[200000], space, count__len, count__tmp, extra__space;
-	char *word[655360], *tmp[10000];
-	for (i = 0; i < 655360; i++)
-	{
-		word[i] = malloc(256 * sizeof(char));
-	}
-	for (i = 0; i < 10000; i++)
-	{
-		tmp[i] = malloc(256 * sizeof(char));
-	}
-	i = 0;
+	int i, j, n, count__word = 0, count__len = 0, blank, extra__blank;
+	char word[256], tmp[100][256], tmp2[256];
+	memset(tmp, '\0', sizeof(tmp) / sizeof(char));
 	scanf("%d", &n);
-	while (scanf("%s", word[i]) != EOF)
+	while (1)
 	{
-		word__len[i] = strlen(word[i]);
-		i++;
-		count__word++;
-	}
-#ifdef DEBUG
-	for (i = 0; i < count__word; i++)
-	{
-		printf("%s ", word[i]);
-	}
-#endif
-	for (i = 0; i < count__word;)
-	{
-		for (j = 0; j < 10000; j++)
+		if (scanf("%s", word) != EOF)
 		{
-			memset(tmp[j], '\0', 256 * sizeof(char));
-		}
-		count__tmp = 0;
-		count__len = 0;
-		while (count__len < n - count__tmp - 1)
-		{
-			strcpy(tmp[count__tmp], word[i]);
-			count__len += word__len[i];
-			if (count__len > n - count__tmp)
+			count__len += strlen(word);
+			strcpy(tmp[count__word], word);
+			count__word++;
+			if (n - count__len < count__word - 1)
 			{
-				count__len -= word__len[i];
-				break;
+				count__word--;
+				count__len -= strlen(word);
+				if (count__word > 1)
+				{
+					blank = (n - count__len) / (count__word - 1);
+					extra__blank = (n - count__len) % (count__word - 1);
+					for (i = 0; i < extra__blank; i++)
+					{
+						printf("%s", tmp[i]);
+						for (j = 0; j < blank + 1; j++)
+						{
+							printf(" ");
+						}
+					}
+					for (; i < count__word - 1; i++)
+					{
+						printf("%s", tmp[i]);
+						for (j = 0; j < blank; j++)
+						{
+							printf(" ");
+						}
+					}
+					printf("%s\n", tmp[i]);
+					strcpy(tmp2, tmp[count__word]);
+					memset(tmp, '\0', sizeof(tmp) / sizeof(char));
+					strcpy(tmp[0], tmp2);
+					count__word = 1;
+					count__len = strlen(tmp[0]);
+					memset(tmp2, '\0', sizeof(tmp2) / sizeof(char));
+				}
+				else
+				{
+					blank = n - count__len;
+					extra__blank = 0;
+					printf("%s",tmp[0]);
+					for(i=0;i<blank;i++)
+					{
+						printf(" ");
+					}
+					printf("\n");
+					strcpy(tmp2, tmp[count__word]);
+					memset(tmp, '\0', sizeof(tmp) / sizeof(char));
+					strcpy(tmp[0], tmp2);
+					count__word = 1;
+					count__len = strlen(tmp[0]);
+					memset(tmp2, '\0', sizeof(tmp2) / sizeof(char));
+				}
 			}
-			i++;
-			count__tmp++;
-			if (i == count__word)
-			{
-				break;
-			}
-		}
-		if (count__tmp > 1)
-		{
-			space = (n - count__len) / (count__tmp - 1);
-			extra__space = (n - count__len) % (count__tmp - 1);
 		}
 		else
 		{
-			space = n - count__len;
-			extra__space = 0;
-		}
-
-		for (j = 0; j < extra__space; j++)
-		{
-			printf("%s", tmp[j]);
-			for (k = 0; k < space + 1; k++)
+			if (count__word > 1)
 			{
-				printf(" ");
+				blank = (n - count__len) / (count__word - 1);
+				extra__blank = (n - count__len) % (count__word - 1);
+				for (i = 0; i < extra__blank; i++)
+				{
+					printf("%s", tmp[i]);
+					for (j = 0; j < blank + 1; j++)
+					{
+						printf(" ");
+					}
+				}
+				for (; i < count__word - 1; i++)
+				{
+					printf("%s", tmp[i]);
+					for (j = 0; j < blank; j++)
+					{
+						printf(" ");
+					}
+				}
+				printf("%s\n", tmp[i]);
 			}
-		}
-		for (; j < count__tmp - 1; j++)
-		{
-			printf("%s", tmp[j]);
-			for (k = 0; k < space; k++)
+			else
 			{
-				printf(" ");
+				blank = n - count__len;
+				printf("%s", tmp[0]);
+				for (i = 0; i < blank; i++)
+				{
+					printf(" ");
+				}
+				printf("\n");
 			}
+			break;
 		}
-		printf("%s", tmp[j]);
-		printf("\n");
-	}
-	for (i = 0; i < 200000; i++)
-	{
-		free(word[i]);
-	}
-	for (i = 0; i < 10000; i++)
-	{
-		free(tmp[i]);
 	}
 	return 0;
 }
