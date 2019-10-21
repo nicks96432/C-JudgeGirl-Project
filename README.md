@@ -10,9 +10,7 @@
 本命是獨行玩家的我  
 終於要在異世界展開生活了嗎?????  
 
-## play with words too 還在研究中 0.0
-
-## bicycle and parking lot 寫出來啦啊啊啊啊啊
+## play with words too 還在研究中    資料結構野太難QQ
 
 祝各位好運  
 
