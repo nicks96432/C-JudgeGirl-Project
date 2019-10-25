@@ -1,5 +1,7 @@
 <font face="微軟正黑體">
 
+# ~~ㄐㄐ~~ 
+
 # 批改娘題目
 
 ![Imgur](https://i.imgur.com/frQ0GnB.png)
@@ -16,4 +18,5 @@
 
     El Psy Congroo.
 
+~~記得小心國際盜懶覺集團~~
 </font>
