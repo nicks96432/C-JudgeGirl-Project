@@ -13,18 +13,18 @@ int main(void)
 #ifdef DEBUG
 	printf("%d\n", max__len);
 #endif //DEBUG
-	// palindrome__a ¨M©w²Ä¤@­Ó¦^¤åªº¶}ÀY
-	// palindrome__b ¨M©w²Ä¤G­Ó¦^¤åªºµ²§À
+	// palindrome__a æ±ºå®šç¬¬ä¸€å€‹å›æ–‡çš„é–‹é ­
+	// palindrome__b æ±ºå®šç¬¬äºŒå€‹å›æ–‡çš„çµå°¾
 	for (palindrome__a = 0; palindrome__a < max__len - 1; palindrome__a++)
 	{
 		for (palindrome__b = palindrome__a + 1; palindrome__b < max__len; palindrome__b++)
 		{
-			// i¨M©w¨â­Ó¦^¤åªº¥æÂI¦b­ş¸Ì
+			// iæ±ºå®šå…©å€‹å›æ–‡çš„äº¤é»åœ¨å“ªè£¡
 			for (i = palindrome__a; i <= palindrome__b; i++)
 			{
 				a__not__palindrome = 0;
 				b__not__palindrome = 0;
-				// jÀË¬di¦ì¸m¬O§_¥¿½T
+				// jæª¢æŸ¥iä½ç½®æ˜¯å¦æ­£ç¢º
 				for (j = 0; j <= (i - palindrome__a) >> 1 && a__not__palindrome == 0; j++)
 				{
 					if (A[palindrome__a + j] != A[i - j])
@@ -39,9 +39,9 @@ int main(void)
 						b__not__palindrome = 1;
 					}
 				}
-				// max__double__palindrome__len °O¿ı³Ì¤jÂù¦^¤åªø«×
-				// max__palindrome__a °O¿ı palindrome__a ªº³Ì¤j­È
-				// max__palindrome__b °O¿ı palindrome__b ªº³Ì¤j­È
+				// max__double__palindrome__len è¨˜éŒ„æœ€å¤§é›™å›æ–‡é•·åº¦
+				// max__palindrome__a è¨˜éŒ„ palindrome__a çš„æœ€å¤§å€¼
+				// max__palindrome__b è¨˜éŒ„ palindrome__b çš„æœ€å¤§å€¼
 				if (a__not__palindrome == 0 && b__not__palindrome == 0 && (palindrome__b - palindrome__a) >= max__double__palindrome__len)
 				{
 					max__double__palindrome__len = palindrome__b - palindrome__a;

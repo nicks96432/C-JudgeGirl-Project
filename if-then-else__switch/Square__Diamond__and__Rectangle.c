@@ -33,7 +33,7 @@ int main(void)
 		abd = area(a, b, d);
 		acd = area(a, c, d);
 		bcd = area(b, c, d);
-		// µù¸Ñ¬°¥HA¬°°ò·Ç¡A°f®É°w±Æ¦C
+		// è¨»è§£ç‚ºä»¥Aç‚ºåŸºæº–ï¼Œé€†æ™‚é‡æ’åˆ—
 		// ABDC ACDB
 		if ((abc != 0 && abd != 0 && acd == 0 && bcd == 0) || (abc == 0 && abd == 0 && acd != 0 && bcd != 0))
 		{

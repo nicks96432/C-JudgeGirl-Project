@@ -7,31 +7,31 @@
 #define LINE__MAX 1000
 typedef struct Variable
 {
-	/* ÅÜ¼Æ¦W */
+	/* è®Šæ•¸å */
 	char name[NAMELEN];
-	/* ÅÜ¼Æ­È */
+	/* è®Šæ•¸å€¼ */
 	int value;
 } variable;
 typedef struct VariableTable
 {
-	/* ©Ò¦³ªºÅÜ¼Æ */
+	/* æ‰€æœ‰çš„è®Šæ•¸ */
 	variable variables[VAR__MAX];
-	/* ¬ö¿ıÅÜ¼Æ¦WºÙ */
+	/* ç´€éŒ„è®Šæ•¸åç¨± */
 	char *var__names[VAR__MAX];
 } variabletable;
 typedef struct Statement
 {
-	/* ¥Î¨ÓÀx¦s«ü¥O */
+	/* ç”¨ä¾†å„²å­˜æŒ‡ä»¤ */
 	int command;
-	/* if ¥Î */
-	int comp1, comp2; //¹Bºâ¤¸
-	int operator;	 //¹Bºâ¤l
-	/* goto ¥Î */
+	/* if ç”¨ */
+	int comp1, comp2; //é‹ç®—å…ƒ
+	int operator;	 //é‹ç®—å­
+	/* goto ç”¨ */
 	int gotoline;
-	/* §ó§ïÅÜ¼Æªº­È & print ¥Î */
+	/* æ›´æ”¹è®Šæ•¸çš„å€¼ & print ç”¨ */
 	int target;
 } statement;
-/* ©Ò¦³ªº¹Bºâ¤l¦WºÙ¡A­nª`·N³o¨Ç¦r¥Nªíªº¬O¤@­Ó¼Æ¦r¡A¤£¬O¦r¦ê */
+/* æ‰€æœ‰çš„é‹ç®—å­åç¨±ï¼Œè¦æ³¨æ„é€™äº›å­—ä»£è¡¨çš„æ˜¯ä¸€å€‹æ•¸å­—ï¼Œä¸æ˜¯å­—ä¸² */
 enum operatorlist
 {
 	ADD,
@@ -46,16 +46,16 @@ enum operatorlist
 	SMALLEREQL,
 	LARGEREQL
 };
-/* ©Ò¦³ªº«ü¥O¦WºÙ¡A­nª`·N³o¨Ç¦r¥Nªíªº¬O¤@­Ó¼Æ¦r¡A¤£¬O¦r¦ê */
+/* æ‰€æœ‰çš„æŒ‡ä»¤åç¨±ï¼Œè¦æ³¨æ„é€™äº›å­—ä»£è¡¨çš„æ˜¯ä¸€å€‹æ•¸å­—ï¼Œä¸æ˜¯å­—ä¸² */
 enum statementlist
 {
 	STOP,
 	IF,
 	GOTO,
 	PRINT,
-	ASSIGN /* §ó§ïÅÜ¼Æªº­È */
+	ASSIGN /* æ›´æ”¹è®Šæ•¸çš„å€¼ */
 };
-/* ¦b Table ¤¤´M§ä String ªº¦ì¸m */
+/* åœ¨ Table ä¸­å°‹æ‰¾ String çš„ä½ç½® */
 int find(char *string, char *table[])
 {
 	int index = 0;
@@ -67,10 +67,10 @@ int find(char *string, char *table[])
 		}
 		index++;
 	}
-	/* ¨S§ä¨ì */
+	/* æ²’æ‰¾åˆ° */
 	return (-1);
 }
-/* ¦b©Ò¦³ÅÜ¼Æ¦WºÙ¤¤³z¹L find ´M§ä name ªº¦ì¸m */
+/* åœ¨æ‰€æœ‰è®Šæ•¸åç¨±ä¸­é€é find å°‹æ‰¾ name çš„ä½ç½® */
 int find__variable(char *name, variabletable *variables)
 {
 	int index = find(name, variables->var__names);
@@ -80,10 +80,10 @@ int find__variable(char *name, variabletable *variables)
 	}
 	return index;
 }
-/* ¦b©Ò¦³¹Bºâ¤l¤¤³z¹L find ´M§ä operator ªº¦ì¸m */
+/* åœ¨æ‰€æœ‰é‹ç®—å­ä¸­é€é find å°‹æ‰¾ operator çš„ä½ç½® */
 int find__operator(char *name)
 {
-	/* ©Ò¦³¹Bºâ¤l¡A¤@©w­n·Ó¶¶§Ç±Æ */
+	/* æ‰€æœ‰é‹ç®—å­ï¼Œä¸€å®šè¦ç…§é †åºæ’ */
 	char *operators[] = {"+", "-", "*", "/", "%", "==", "!=", "<", ">", "<=", ">=", NULL};
 	int index = find(name, operators);
 	if (index == -1)
@@ -92,47 +92,47 @@ int find__operator(char *name)
 	}
 	return index;
 }
-/* Åª¤JÅÜ¼Æ¡Aª`·N variables ¬O«ü¼Ğ */
+/* è®€å…¥è®Šæ•¸ï¼Œæ³¨æ„ variables æ˜¯æŒ‡æ¨™ */
 void read__variable(variabletable *variables)
 {
-	/* °O¿ı³o¬O²Ä´X­ÓÅÜ¼Æ¡Aªì©l³]©w¬° 0 ¬O¦]¬° END ¤£¯àºâ¶i¥h */
+	/* è¨˜éŒ„é€™æ˜¯ç¬¬å¹¾å€‹è®Šæ•¸ï¼Œåˆå§‹è¨­å®šç‚º 0 æ˜¯å› ç‚º END ä¸èƒ½ç®—é€²å» */
 	int count = 0;
-	/* Åª¤JÅÜ¼Æ¦WºÙ¥Î */
+	/* è®€å…¥è®Šæ•¸åç¨±ç”¨ */
 	char name[NAMELEN];
-	/* Åª¤J = ²Å¸¹ */
+	/* è®€å…¥ = ç¬¦è™Ÿ */
 	char assign[NAMELEN];
-	/* ³z¹L«ü¼Ğ¨Ó§ó§ï variables ¤¤ªº­È */
+	/* é€éæŒ‡æ¨™ä¾†æ›´æ”¹ variables ä¸­çš„å€¼ */
 	variable *varptr;
-	/* Åª¤JÅÜ¼Æ¦WºÙ */
+	/* è®€å…¥è®Šæ•¸åç¨± */
 	scanf("%s", name);
 	while (strcmp(name, "END") != 0)
 	{
-		/* ±N varptr «ü¦V variables ¤¤ªº²Ä count ­ÓÅÜ¼Æ */
+		/* å°‡ varptr æŒ‡å‘ variables ä¸­çš„ç¬¬ count å€‹è®Šæ•¸ */
 		varptr = &(variables->variables[count]);
-		/* ±NÅª¨ìªºÅÜ¼Æ¦WºÙ¦s¶i¥h */
+		/* å°‡è®€åˆ°çš„è®Šæ•¸åç¨±å­˜é€²å» */
 		strcpy(varptr->name, name);
-		/* Åª¤J = ²Å¸¹ */
+		/* è®€å…¥ = ç¬¦è™Ÿ */
 		scanf("%s", assign);
-		/* ½T©wÅª¹ï¤F */
+		/* ç¢ºå®šè®€å°äº† */
 		assert(strcmp(assign, "=") == 0);
-		/* ¦b variables ¬ö¿ı©Ò¦³ªºÅÜ¼Æ¦WºÙ */
+		/* åœ¨ variables ç´€éŒ„æ‰€æœ‰çš„è®Šæ•¸åç¨± */
 		variables->var__names[count] = varptr->name;
-		/* Åª¤JÅÜ¼Æªº­È */
+		/* è®€å…¥è®Šæ•¸çš„å€¼ */
 		scanf("%d", &(varptr->value));
-		/* Åª¤J¤U¤@­ÓÅÜ¼Æ */
+		/* è®€å…¥ä¸‹ä¸€å€‹è®Šæ•¸ */
 		scanf("%s", name);
-		/* ³o¼Ë´N¤£·|ºâ¨ì END ¤F */
+		/* é€™æ¨£å°±ä¸æœƒç®—åˆ° END äº† */
 		count++;
 	}
 }
-/* ±Mªù½sÄ¶ IF ªº¨ç¦¡¡Aª`·N variables ¬O«ü¼Ğ */
+/* å°ˆé–€ç·¨è­¯ IF çš„å‡½å¼ï¼Œæ³¨æ„ variables æ˜¯æŒ‡æ¨™ */
 void process__if(statement *statementptr, variabletable *variables)
 {
-	/* Åª¤J­n¤ñ¸ûªºÅÜ¼Æ¦WºÙ */
+	/* è®€å…¥è¦æ¯”è¼ƒçš„è®Šæ•¸åç¨± */
 	char comp[NAMELEN];
-	/* Åª¤J¤ñ¸û²Å¸¹¥Î */
+	/* è®€å…¥æ¯”è¼ƒç¬¦è™Ÿç”¨ */
 	char operator[NAMELEN];
-	/* IF ¤@©w¦³¤@­Ó GOTO¡A©Ò¥H´N¥Î³o­ÓÅª¤J */
+	/* IF ä¸€å®šæœ‰ä¸€å€‹ GOTOï¼Œæ‰€ä»¥å°±ç”¨é€™å€‹è®€å…¥ */
 	char gotostr[NAMELEN];
 	scanf("%s", comp);
 	statementptr->comp1 = find__variable(comp, variables);
@@ -141,18 +141,18 @@ void process__if(statement *statementptr, variabletable *variables)
 	scanf("%s", comp);
 	statementptr->comp2 = find__variable(comp, variables);
 	scanf("%s", gotostr);
-	/* ½T©wÅª¹ï¤F */
+	/* ç¢ºå®šè®€å°äº† */
 	assert(strcmp(gotostr, "GOTO") == 0);
 	scanf("%d", &(statementptr->gotoline));
 }
-/* ±Mªù³B²z§ó§ïÅÜ¼Æ­Èªº¨ç¦¡¡Aª`·N variables ¬O«ü¼Ğ */
+/* å°ˆé–€è™•ç†æ›´æ”¹è®Šæ•¸å€¼çš„å‡½å¼ï¼Œæ³¨æ„ variables æ˜¯æŒ‡æ¨™ */
 void process__assign(statement *statementptr, char *name, variabletable *variables)
 {
-	/* Åª¤Jµ¥¸¹¥kÃäªºÅÜ¼Æ¦WºÙ¥Î */
+	/* è®€å…¥ç­‰è™Ÿå³é‚Šçš„è®Šæ•¸åç¨±ç”¨ */
 	char comp[NAMELEN];
-	/* Åª¤Jµ¥¸¹¥kÃäªº¹Bºâ¤l¥Î */
+	/* è®€å…¥ç­‰è™Ÿå³é‚Šçš„é‹ç®—å­ç”¨ */
 	char operator[NAMELEN];
-	/* Åª¤J = ²Å¸¹¥Î */
+	/* è®€å…¥ = ç¬¦è™Ÿç”¨ */
 	char assign[NAMELEN];
 	statementptr->target = find__variable(name, variables);
 	scanf("%s", assign);
@@ -164,25 +164,25 @@ void process__assign(statement *statementptr, char *name, variabletable *variabl
 	scanf("%s", comp);
 	statementptr->comp2 = find__variable(comp, variables);
 }
-/* ½sÄ¶µ{¦¡¡Aª`·N variables ¬O«ü¼Ğ */
+/* ç·¨è­¯ç¨‹å¼ï¼Œæ³¨æ„ variables æ˜¯æŒ‡æ¨™ */
 void process__code(variabletable *variables, statement statements[])
 {
-	/* §â¦r¦êÂà´«¦¨¼Æ¦rªºªí®æ¡Aª`·N¤@©w­n«ö·Ó­ì¨Óªº¶¶§Ç¡A§ó§ïÅÜ¼Æªº­È¨S¦³«ü¥O¦WºÙ */
+	/* æŠŠå­—ä¸²è½‰æ›æˆæ•¸å­—çš„è¡¨æ ¼ï¼Œæ³¨æ„ä¸€å®šè¦æŒ‰ç…§åŸä¾†çš„é †åºï¼Œæ›´æ”¹è®Šæ•¸çš„å€¼æ²’æœ‰æŒ‡ä»¤åç¨± */
 	char *commands[] = {"STOP", "IF", "GOTO", "PRINT", NULL};
-	/* Åª¤J«ü¥O¥Î */
+	/* è®€å…¥æŒ‡ä»¤ç”¨ */
 	char command[NAMELEN];
-	/* ¦L¥XÅÜ¼Æ­È¥Î */
+	/* å°å‡ºè®Šæ•¸å€¼ç”¨ */
 	char var__print[NAMELEN];
-	/* §âÅª¨ìªº«ü¥O±q¦r¦êÂà¦¨¼Æ¦r¥Î */
+	/* æŠŠè®€åˆ°çš„æŒ‡ä»¤å¾å­—ä¸²è½‰æˆæ•¸å­—ç”¨ */
 	int type;
-	/* ³z¹L«ü¼Ğ¨Ó§ó§ï statements ªº­È¡A¥Ñ©óµ{¦¡½X±q²Ä¤G¦æ¶}©l¡A©Ò¥H«ü¦V 1 */
+	/* é€éæŒ‡æ¨™ä¾†æ›´æ”¹ statements çš„å€¼ï¼Œç”±æ–¼ç¨‹å¼ç¢¼å¾ç¬¬äºŒè¡Œé–‹å§‹ï¼Œæ‰€ä»¥æŒ‡å‘ 1 */
 	statement *statementptr = &(statements[1]);
-	/* Åª¤J«ü¥O */
+	/* è®€å…¥æŒ‡ä»¤ */
 	while (scanf("%s", command) != EOF)
 	{
-		/* §Q¥Î find §ä¥X«ü¥O¥Nªíªº¼Æ¦r */
+		/* åˆ©ç”¨ find æ‰¾å‡ºæŒ‡ä»¤ä»£è¡¨çš„æ•¸å­— */
 		type = find(command, commands);
-		/* ³o¸Ìªº«ü¥O¥Nªíªº³£¬O¼Æ¦r */
+		/* é€™è£¡çš„æŒ‡ä»¤ä»£è¡¨çš„éƒ½æ˜¯æ•¸å­— */
 		switch (type)
 		{
 		case GOTO:
@@ -199,21 +199,21 @@ void process__code(variabletable *variables, statement statements[])
 		case PRINT:
 			statementptr->command = PRINT;
 			scanf("%s", var__print);
-			/* ¦b variables ¤¤§ä¨ì var__print ¬O²Ä´X­ÓÅÜ¼Æ */
+			/* åœ¨ variables ä¸­æ‰¾åˆ° var__print æ˜¯ç¬¬å¹¾å€‹è®Šæ•¸ */
 			statementptr->target = find__variable(var__print, variables);
 			break;
-		/* §ó§ïÅÜ¼Æªº­È */
+		/* æ›´æ”¹è®Šæ•¸çš„å€¼ */
 		default:
 			statementptr->command = ASSIGN;
-			/* ³o¸Ìªº command ¬OÅÜ¼Æ¦WºÙ */
+			/* é€™è£¡çš„ command æ˜¯è®Šæ•¸åç¨± */
 			process__assign(statementptr, command, variables);
 			break;
 		}
-		/* ³B²z¤U¤@±ø«ü¥O */
+		/* è™•ç†ä¸‹ä¸€æ¢æŒ‡ä»¤ */
 		statementptr++;
 	}
 }
-/* ¤ñ¸û¥ş¾a³o­Ó¨ç¦¡ */
+/* æ¯”è¼ƒå…¨é é€™å€‹å‡½å¼ */
 int compare(int comp1, int comp2, int operator)
 {
 	switch (operator)
@@ -242,7 +242,7 @@ int compare(int comp1, int comp2, int operator)
 		break;
 	}
 }
-/* ºâ¼Æ¥ş¾a³o­Ó¨ç¦¡ */
+/* ç®—æ•¸å…¨é é€™å€‹å‡½å¼ */
 int math(int comp1, int comp2, int operator)
 {
 	switch (operator)
@@ -267,14 +267,14 @@ int math(int comp1, int comp2, int operator)
 		break;
 	}
 }
-/* °õ¦æµ{¦¡¡Aª`·N variables ¬O«ü¼Ğ */
+/* åŸ·è¡Œç¨‹å¼ï¼Œæ³¨æ„ variables æ˜¯æŒ‡æ¨™ */
 void run__code(variabletable *variables, statement statements[])
 {
-	/* ²Ä¤@¦æ¬O«Å§iÅÜ¼Æ¡A©Ò¥Hµ{¦¡±q²Ä¤G¦æ¶}©l°õ¦æ */
+	/* ç¬¬ä¸€è¡Œæ˜¯å®£å‘Šè®Šæ•¸ï¼Œæ‰€ä»¥ç¨‹å¼å¾ç¬¬äºŒè¡Œé–‹å§‹åŸ·è¡Œ */
 	int line = 1;
-	/* ³z¹L«ü¼Ğ¨Ó§ó§ï statements ªº­È¡A¥Ñ©óµ{¦¡½X±q²Ä¤G¦æ¶}©l¡A©Ò¥H«ü¦V 1 */
+	/* é€éæŒ‡æ¨™ä¾†æ›´æ”¹ statements çš„å€¼ï¼Œç”±æ–¼ç¨‹å¼ç¢¼å¾ç¬¬äºŒè¡Œé–‹å§‹ï¼Œæ‰€ä»¥æŒ‡å‘ 1 */
 	statement *statementptr = &(statements[line]);
-	/* ³z¹L«ü¼Ğ¨Ó§ó§ï variables ¤¤ªº­È */
+	/* é€éæŒ‡æ¨™ä¾†æ›´æ”¹ variables ä¸­çš„å€¼ */
 	variable *varptr = variables->variables;
 	while (statementptr->command != STOP)
 	{
@@ -309,16 +309,16 @@ void run__code(variabletable *variables, statement statements[])
 		statementptr = &(statements[line]);
 	}
 }
-/* main ¨ç¦¡ */
+/* main å‡½å¼ */
 int main(void)
 {
 	variabletable variables;
 	statement statements[LINE__MAX];
-	/* ÅªÀÉ */
+	/* è®€æª” */
 	read__variable(&variables);
-	/* ½sÄ¶ */
+	/* ç·¨è­¯ */
 	process__code(&variables, statements);
-	/* °õ¦æ */
+	/* åŸ·è¡Œ */
 	run__code(&variables, statements);
 	return 0;
 }

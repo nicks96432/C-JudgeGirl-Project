@@ -13,7 +13,7 @@ int main(void)
 		// hit each other
 		if (x1 == x2 && y1 == y2)
 		{
-			// ¥¿­±¸I¼²
+			// æ­£é¢ç¢°æ’
 			if (dx1 == -dx2 && dy1 == -dy2)
 			{
 				dx1 = -dx1;
@@ -21,7 +21,7 @@ int main(void)
 				dy1 = -dy1;
 				dy2 = -dy2;
 			}
-			// °¼­±¸I¼²
+			// å´é¢ç¢°æ’
 			else if (dx1 == dx2 && dy1 == -dy2)
 			{
 				dy1 = -dy1;
@@ -73,7 +73,7 @@ int main(void)
 // Note that by our rules two balls exchanging positions do not collide.
 // If the ball hits a corner, it bounces back the way it came in.
 // If two balls hit into each other, their positions are the same after they move into their new locations.
-// ½c¤l¥ª¤U¨¤¦b(1,1)
+// ç®±å­å·¦ä¸‹è§’åœ¨(1,1)
 /*
    (1,Y)_________________________________(X,Y)
 		|								|

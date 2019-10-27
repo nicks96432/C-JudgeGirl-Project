@@ -6,7 +6,7 @@ void snake(const int *ptr_array[100][100], int m);
 int main()
 {
 	int array[100][100], check[100][100];
-	const int *ptr_array[100][100];//«ü¦V¾ã¼Æ±`¼Æªº¾ã¼Æ«ü¼Ğ
+	const int *ptr_array[100][100];//æŒ‡å‘æ•´æ•¸å¸¸æ•¸çš„æ•´æ•¸æŒ‡æ¨™
 	int i, j, m;
 
 	scanf("%d", &m);

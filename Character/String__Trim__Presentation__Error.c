@@ -14,19 +14,19 @@ int main(void)
 char *erase(char *s)
 {
 	char *tmp = s;
-	// ¥ı¥Îtmp1§ä¨ìs³Ì«á¤@­Ó¦r¤¸
+	// å…ˆç”¨tmp1æ‰¾åˆ°sæœ€å¾Œä¸€å€‹å­—å…ƒ
 	while (*tmp)
 	{
 		tmp++;
 	}
 	tmp--;
-	// ­×°Å¥½ºİªÅ¥Õ
+	// ä¿®å‰ªæœ«ç«¯ç©ºç™½
 	while (isspace(*tmp))
 	{
 		*tmp = 0;
 		tmp--;
 	}
-	//­×°Å«eºİªÅ¥Õ
+	//ä¿®å‰ªå‰ç«¯ç©ºç™½
 	while (isspace(*s))
 	{
 		s++;

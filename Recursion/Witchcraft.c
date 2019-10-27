@@ -21,7 +21,7 @@ int main(void)
 	}
 	return 0;
 }
-bool craft(int size, int a, int b, int c, int now) /* now : ²{¦b®³a,b,c­þ¤@­Ó */
+bool craft(int size, int a, int b, int c, int now) /* now : ç¾åœ¨æ‹¿a,b,cå“ªä¸€å€‹ */
 {
 	int i;
 	if (now > 2 || size > D)

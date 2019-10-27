@@ -3,15 +3,15 @@ int main(void)
 {
 	int x, prev = 0, prevprev = 0;
 	int index = 0, start = 1, max = 0, max__left = 0, start__find = 0;
-	int left = 0, right = 0;//right­t³d¼È¦s¥ª¥bÃä¡Aµ¥right©T©w¦A¦s¨ìleft
+	int left = 0, right = 0;//rightè² è²¬æš«å­˜å·¦åŠé‚Šï¼Œç­‰rightå›ºå®šå†å­˜åˆ°left
 	while (scanf("%d", &x) != EOF)
 	{
 		index++;
-		if ((x - prev) * (prev - prevprev) > 0) //¤s©Î¨¦¥ª¥bÃä
+		if ((x - prev) * (prev - prevprev) > 0) //å±±æˆ–è°·å·¦åŠé‚Š
 		{
 			right++;
 		}
-		if ((x - prev) * (prev - prevprev) < 0)//¤s©Î¨¦¥k¥bÃä
+		if ((x - prev) * (prev - prevprev) < 0)//å±±æˆ–è°·å³åŠé‚Š
 		{
 			left = right;
 			right = 2;

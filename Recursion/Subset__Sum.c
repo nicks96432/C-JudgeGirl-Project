@@ -24,6 +24,6 @@ void count(int index, int num[], int sum)
 		ans[sum]++;
 		return;
 	}
-	count(index + 1, num, sum);//¤£®³²Äindex­Ó
-	count(index + 1, num, sum + num[index]);//®³²Äindex­Ó
+	count(index + 1, num, sum);//ä¸æ‹¿ç¬¬indexå€‹
+	count(index + 1, num, sum + num[index]);//æ‹¿ç¬¬indexå€‹
 }

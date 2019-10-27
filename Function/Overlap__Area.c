@@ -7,7 +7,7 @@ int main(void)
 {
 	int i, j;
 	long int ans;
-	// 0:¥ª¤Ux 1:¥ª¤Uy 2:¥k¤Wx 3:¥k¤Wy
+	// 0:å·¦ä¸‹x 1:å·¦ä¸‹y 2:å³ä¸Šx 3:å³ä¸Šy
 	long int rectangle[3][4];
 	for (i = 0; i < 3; i++)
 	{
@@ -28,7 +28,7 @@ int main(void)
 void overlap(long int a[4], const long int b[4], const long int c[4])
 {
 
-	// 0:ªø 1:¼e
+	// 0:é•· 1:å¯¬
 	if ((b[0] == 0 && b[1] == 0 && b[2] == 0 && b[3] == 0) || (c[0] == 0 && c[1] == 0 && c[2] == 0 && c[3] == 0))
 	{
 		a[0] = 0;

@@ -6,12 +6,12 @@ typedef struct Pin
 	long int probability__up;
 	long int probability__down;
 } pin;
-// ÀY§À±M¥Î
+// é ­å°¾å°ˆç”¨
 void reduce(pin *);
 // a=b*c
-// ÀY§À±M¥Î ­¼§¹¬ù¤À
+// é ­å°¾å°ˆç”¨ ä¹˜å®Œç´„åˆ†
 void multiply(pin *, pin *, pin *);
-// ¤¤¶¡±M¥Î ¥ı¬ù¤À¦A­¼¦A¬ù¤À
+// ä¸­é–“å°ˆç”¨ å…ˆç´„åˆ†å†ä¹˜å†ç´„åˆ†
 void multiply__middle(pin *, pin *, pin *);
 long int gcd(long int, long int);
 int main(void)

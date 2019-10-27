@@ -20,7 +20,7 @@ int find__book(unsigned long long bookshelf, int book)
 	}
 	return i;
 }
-/* ®³¥X²Äbook¥»®Ñ */
+/* æ‹¿å‡ºç¬¬bookæœ¬æ›¸ */
 unsigned long long take__book(unsigned long long bookshelf, int book)
 {
 	unsigned long long count[9] = {0ULL};
@@ -50,9 +50,9 @@ unsigned long long put__book(unsigned long long bookshelf, int book)
 	{
 		count[i] = count[0] << (i * 8);
 	}
-	/* ¦b­n®³ªº®Ñ¥ªÃäªº©Ò¦³®Ñ(­n°Êªº) */
+	/* åœ¨è¦æ‹¿çš„æ›¸å·¦é‚Šçš„æ‰€æœ‰æ›¸(è¦å‹•çš„) */
 	unsigned long long left = 0;
-	/* ¦b­n®³ªº®Ñ¥kÃäªº©Ò¦³®Ñ(¤£¥i¥H°Êªº) */
+	/* åœ¨è¦æ‹¿çš„æ›¸å³é‚Šçš„æ‰€æœ‰æ›¸(ä¸å¯ä»¥å‹•çš„) */
 	unsigned long long right = 0;
 	for (i = book + 1; i < 8; i++)
 	{

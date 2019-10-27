@@ -1,4 +1,4 @@
-// ptr[0]«ü¦Varr[0]¡Aptr[n-1]«ü¦Varr³Ì¥½ºİ
+// ptr[0]æŒ‡å‘arr[0]ï¼Œptr[n-1]æŒ‡å‘arræœ€æœ«ç«¯
 void fill_array(int *ptr[], int n)
 {
 	int i, *tmpptr, arrsize = 0;

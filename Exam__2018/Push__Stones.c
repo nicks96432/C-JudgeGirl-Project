@@ -34,7 +34,7 @@ int main(void)
 		can__push = false;
 		switch (command)
 		{
-		case 0: //¤£°Ê
+		case 0: //ä¸å‹•
 			for (i = 0; i < n; i++)
 			{
 				for (j = 0; j < m - 1; j++)
@@ -44,7 +44,7 @@ int main(void)
 				printf("%d\n", map[i][j]);
 			}
 			break;
-		case 1: //¦V¥k
+		case 1: //å‘å³
 			if (column < m - 1)
 			{
 				for (i = column + 1; i < m; i++)
@@ -76,7 +76,7 @@ int main(void)
 				}
 			}
 			break;
-		case 2: //¦V¤U
+		case 2: //å‘ä¸‹
 			if (row <= n - 2)
 			{
 				for (i = row + 1; i < n; i++)
@@ -108,7 +108,7 @@ int main(void)
 				}
 			}
 			break;
-		case 3: //¦V¥ª
+		case 3: //å‘å·¦
 			if (column > 0)
 			{
 				for (i = column - 1; i >= 0; i--)
@@ -140,7 +140,7 @@ int main(void)
 				}
 			}
 			break;
-		case 4: //¦V¤W
+		case 4: //å‘ä¸Š
 			if (row > 0)
 			{
 				for (i = row - 1; i >= 0; i--)
