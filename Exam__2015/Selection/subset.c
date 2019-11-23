@@ -1,5 +1,4 @@
 #include "subset.h"
-
 int subset(int numbers[], int n, int K, int S)
 {
 	if (S == 0 && K == 0)
