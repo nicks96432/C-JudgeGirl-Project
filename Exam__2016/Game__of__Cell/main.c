@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "game_of_cell.h"
+#include "game__of__cell.h"
 int main(void)
 {
 	int grid[50][50] = {0}, outcome[50][50] = {0}, N;
