@@ -1,4 +1,5 @@
 #include <string.h>
+#include "Game__of__Cell.h"
 void game_of_cell(int grid[50][50], int outcome[50][50], int N)
 {
 	int i, j;
