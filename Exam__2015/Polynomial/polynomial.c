@@ -59,6 +59,5 @@ void print(Polynomial *poly)
 	{
 		printf("\n");
 	}
-
 	return;
 }
