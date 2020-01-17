@@ -35,6 +35,7 @@ int main(void)
 	for (int i = 0; i < s; i++)
 	{
 		hashtable[i] = (Bucket *)malloc(sizeof(Bucket));
+		hashtable[i]->count = 0;
 	}
 	int key;
 	char string[MAX_LEN];
