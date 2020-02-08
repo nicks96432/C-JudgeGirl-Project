@@ -16,8 +16,6 @@
 
 ### 可是github為啥不能用啦齁齁齁齁齁齁
 
-![國棟:這什麼到底是甚麼閃現.gif](https://i.imgur.com/s37q1Gf.gif)
-
 祝各位好運  
 
     El Psy Congroo.
