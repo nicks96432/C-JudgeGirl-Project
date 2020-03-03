@@ -58,6 +58,7 @@ static void trace(Node *root, int *totalDepth, int *countLeaf, int nowDepth)
 	{
 		trace(root->right, totalDepth, countLeaf, nowDepth + 1);
 	}
+	return;
 }
 void depthAvg(Node *root)
 {
