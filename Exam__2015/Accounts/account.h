@@ -1,6 +1,6 @@
 #ifndef ACCOUNT_H
-#define ACCOUNT_H
 
+#define ACCOUNT_H
 typedef struct account
 {
 	int balance;
